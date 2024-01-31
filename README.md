@@ -7,3 +7,6 @@ Steps to run this script:
 5. the script will output `cityData.json` once it's done
 6. for simplicity's sake, copy the content of `cityData.json` into the `index.html` file
 7. you can run a local server to serve the website if you have python by running: `python -m http.server` then go to `localhost:8000` to see the website
+
+![Screenshot 1](screenshot1.png)
+![Screenshot 2](screenshot2.png)
