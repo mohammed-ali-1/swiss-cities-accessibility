@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>City Accessibility and Map of Switzerland</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+        }
+        #controls, #map {
+            flex: 1;
+        }
+        #rankingTable {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        #rankingTable, #rankingTable th, #rankingTable td {
+            border: 1px solid black;
+        }
+        #rankingTable th, #rankingTable td {
+            padding: 5px;
+            text-align: left;
+        }
+        .button {
+            cursor: pointer;
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <div id="controls">
+        <div>
+            <button id="cycling" class="button">Cycling</button>
+            <button id="wheelchair" class="button">Wheelchair</button>
+            <button id="walking" class="button">Walking</button>
+        </div>
+        <table id="rankingTable">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>City</th>
+                    <th>Duration</th>
+                    <th>Distance</th>
+                    <th>Amenity Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data rows will be populated here -->
+            </tbody>
+        </table>
+    </div>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="./loadCityData.js"></script>
+    <script>
+        // JavaScript for ranking table and map interaction
+        const cityData = {
+  "Zurich": {
+    "residentialCenter": {
+      "lat": 47.3805716,
+      "lon": 8.6005999
+    },
+    "nearestAmenity": {
+      "type": "node",
+      "id": 667008916,
+      "lat": 47.3755808,
+      "lon": 8.6079447,
+      "tags": {
+        "addr:city": "Gockhausen",
+        "addr:housenumber": "72",
+        "addr:postcode": "8044",
+        "addr:street": "Obere Geerenstrasse",
+        "amenity": "restaurant",
+        "cuisine": "regional",
+        "name": "Geeren",
+        "opening_hours": "We-Sa 10:00-23:00; Su 10:00-22:00",
+        "outdoor_seating": "yes",
+        "phone": "+41 44 821 40 11",
+        "website": "https://www.geeren.ch/"
+      }
+    },
+    "travelDuration": {
+      "wheelchair": {
+        "distance": 884.8,
+        "duration": 641.2,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      },
+      "cycling-road": {
+        "distance": 811.9,
+        "duration": 198.7,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      },
+      "foot-walking": {
+        "distance": 811.9,
+        "duration": 584.6,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      }
+    }
+  },
+  "Geneva": {
+    "residentialCenter": {
+      "lat": 46.186041,
+      "lon": 6.1420193
+    },
+    "nearestAmenity": {
+      "type": "node",
+      "id": 9545978088,
+      "lat": 46.1861287,
+      "lon": 6.142368,
+      "tags": {
+        "addr:city": "Carouge",
+        "addr:housenumber": "24",
+        "addr:postcode": "1227",
+        "addr:street": "Avenue Cardinal-Mermillod",
+        "amenity": "restaurant",
+        "cuisine": "thai",
+        "name": "Sawasdee",
+        "opening_hours": "Mo-Su 12:00-14:00,19:00-23:00",
+        "phone": "+4122 300 08 42",
+        "website": "https://www.sawasdee-geneve.com/"
+      }
+    },
+    "travelDuration": {
+      "wheelchair": {
+        "distance": 56.2,
+        "duration": 40.5,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      },
+      "cycling-road": {
+        "distance": 56.2,
+        "duration": 33.7,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      },
+      "foot-walking": {
+        "distance": 56.2,
+        "duration": 40.5,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      }
+    }
+  },
+  "Basel": {
+    "residentialCenter": {
+      "lat": 47.5898327,
+      "lon": 7.5623131
+    },
+    "nearestAmenity": {
+      "type": "node",
+      "id": 10242599337,
+      "lat": 47.5885725,
+      "lon": 7.5610141,
+      "tags": {
+        "addr:city": "Saint-Louis",
+        "addr:housenumber": "46",
+        "addr:postcode": "68300",
+        "addr:street": "Rue de Mulhouse",
+        "amenity": "restaurant",
+        "name": "Le Trianon"
+      }
+    },
+    "travelDuration": {
+      "wheelchair": {
+        "distance": 326.2,
+        "duration": 297.4,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      },
+      "cycling-road": {
+        "distance": 338.8,
+        "duration": 113.8,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      },
+      "foot-walking": {
+        "distance": 326.2,
+        "duration": 234.8,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      }
+    }
+  },
+  "Lausanne": {
+    "residentialCenter": {
+      "lat": 46.5375797,
+      "lon": 6.6525804
+    },
+    "nearestAmenity": {
+      "type": "node",
+      "id": 5395613251,
+      "lat": 46.5406613,
+      "lon": 6.6573139,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Le Piranha"
+      }
+    },
+    "travelDuration": {
+      "wheelchair": null,
+      "cycling-road": {
+        "distance": 1145.4,
+        "duration": 262.7,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      },
+      "foot-walking": {
+        "distance": 1147.6,
+        "duration": 826.3,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      }
+    }
+  },
+  "Bern": {
+    "residentialCenter": {
+      "lat": 46.9466423,
+      "lon": 7.4826352
+    },
+    "nearestAmenity": {
+      "type": "node",
+      "id": 537955663,
+      "lat": 46.9452602,
+      "lon": 7.4728748,
+      "tags": {
+        "amenity": "restaurant",
+        "contact:email": "info@strada-bern.ch",
+        "contact:phone": "+41 31 352 94 24",
+        "contact:website": "https://www.strada-bern.ch",
+        "cuisine": "italian",
+        "name": "Strada",
+        "opening_hours": "Mo-Sa 08:00-23:00; Su,PH off",
+        "takeaway": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    "travelDuration": {
+      "wheelchair": {
+        "distance": 1226.5,
+        "duration": 924.4,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      },
+      "cycling-road": {
+        "distance": 1367.1,
+        "duration": 313.5,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      },
+      "foot-walking": {
+        "distance": 1221.3,
+        "duration": 879.3,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      }
+    }
+  },
+  "Winterthur": {
+    "residentialCenter": {
+      "lat": 47.4776532,
+      "lon": 8.7029556
+    },
+    "nearestAmenity": {
+      "type": "node",
+      "id": 4125136764,
+      "lat": 47.4763352,
+      "lon": 8.7041609,
+      "tags": {
+        "addr:city": "Winterthur",
+        "addr:housenumber": "322",
+        "addr:postcode": "8406",
+        "addr:street": "Zürcherstrasse",
+        "amenity": "restaurant",
+        "name": "By Elvis",
+        "website": "https://www.byelvis.ch/"
+      }
+    },
+    "travelDuration": {
+      "wheelchair": {
+        "distance": 290,
+        "duration": 207.8,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      },
+      "cycling-road": {
+        "distance": 238.5,
+        "duration": 69.8,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      },
+      "foot-walking": {
+        "distance": 239.6,
+        "duration": 172.5,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      }
+    }
+  },
+  "Lucerne": {
+    "residentialCenter": {
+      "lat": 47.0804213,
+      "lon": 8.3396634
+    },
+    "nearestAmenity": {
+      "type": "node",
+      "id": 2363140154,
+      "lat": 47.0821775,
+      "lon": 8.3414215,
+      "tags": {
+        "addr:city": "Ebikon",
+        "addr:housenumber": "7",
+        "addr:postcode": "6030",
+        "addr:street": "Zentralstrasse",
+        "amenity": "restaurant",
+        "cuisine": "italian",
+        "name": "Restaurant Sonne",
+        "phone": "+41 41 440 90 40",
+        "website": "http://www.sonne-ebikon.ch/"
+      }
+    },
+    "travelDuration": {
+      "wheelchair": {
+        "distance": 359.4,
+        "duration": 250.2,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      },
+      "cycling-road": {
+        "distance": 252.4,
+        "duration": 73.5,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      },
+      "foot-walking": {
+        "distance": 272.5,
+        "duration": 196.2,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      }
+    }
+  },
+  "St. Gallen": {
+    "residentialCenter": {
+      "lat": 47.4018078,
+      "lon": 9.2988174
+    },
+    "nearestAmenity": {
+      "type": "node",
+      "id": 4233202590,
+      "lat": 47.4039087,
+      "lon": 9.3025846,
+      "tags": {
+        "addr:postcode": "9015",
+        "addr:street": "Herisauerstrasse",
+        "amenity": "restaurant",
+        "name": "Landhaus",
+        "opening_hours": "Mo-Fr 08:00-23:00; Sa 09:00-13:00",
+        "wheelchair": "no"
+      }
+    },
+    "travelDuration": {
+      "wheelchair": {
+        "distance": 854.7,
+        "duration": 640.3,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      },
+      "cycling-road": {
+        "distance": 795.5,
+        "duration": 129.5,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      },
+      "foot-walking": {
+        "distance": 462.9,
+        "duration": 333.3,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      }
+    }
+  },
+  "Lugano": {
+    "residentialCenter": {
+      "lat": 46.0182124,
+      "lon": 8.9639304
+    },
+    "nearestAmenity": {
+      "type": "node",
+      "id": 415252042,
+      "lat": 46.0203932,
+      "lon": 8.9651438,
+      "tags": {
+        "addr:city": "Pregassona",
+        "addr:housenumber": "18",
+        "addr:postcode": "6963",
+        "addr:street": "Via Industria",
+        "amenity": "restaurant",
+        "cuisine": "italian",
+        "name": "La Civetta",
+        "phone": "+41 91 930 81 61"
+      }
+    },
+    "travelDuration": {
+      "wheelchair": {
+        "distance": 341,
+        "duration": 264.7,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      },
+      "cycling-road": {
+        "distance": 317.8,
+        "duration": 72.4,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      },
+      "foot-walking": {
+        "distance": 346.8,
+        "duration": 249.7,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      }
+    }
+  },
+  "Biel": {
+    "residentialCenter": {
+      "lat": 47.150338,
+      "lon": 7.2393385
+    },
+    "nearestAmenity": {
+      "type": "node",
+      "id": 1020601839,
+      "lat": 47.1497998,
+      "lon": 7.2395312,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Le Cyrano"
+      }
+    },
+    "travelDuration": {
+      "wheelchair": {
+        "distance": 164.7,
+        "duration": 129.1,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      },
+      "cycling-road": {
+        "distance": 163.3,
+        "duration": 29.2,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      },
+      "foot-walking": {
+        "distance": 65,
+        "duration": 46.8,
+        "durationUnit": "seconds",
+        "distanceUnit": "meters"
+      }
+    }
+  }
+}
+
+        document.getElementById('cycling').addEventListener('click', () => updateTable('cycling-road'));
+        document.getElementById('wheelchair').addEventListener('click', () => updateTable('wheelchair'));
+        document.getElementById('walking').addEventListener('click', () => updateTable('foot-walking'));
+
+        function updateTable(category) {
+    const rankingTable = document.getElementById('rankingTable').getElementsByTagName('tbody')[0];
+    rankingTable.innerHTML = ''; // Clear existing rows
+
+    // Filter out cities with null values in the selected category, then sort
+    const sortedCities = Object.keys(cityData)
+        .filter(city => cityData[city].travelDuration[category] !== null)
+        .map(city => ({
+            name: city,
+            data: cityData[city]
+        }))
+        .sort((a, b) => {
+            const durationA = a.data.travelDuration[category] ? a.data.travelDuration[category].duration : Infinity;
+            const durationB = b.data.travelDuration[category] ? b.data.travelDuration[category].duration : Infinity;
+            return durationA - durationB;
+        });
+
+    // Populate the table with sorted data
+    let rank = 1;
+    sortedCities.forEach(city => {
+        const row = rankingTable.insertRow();
+        row.insertCell(0).innerText = rank++;
+        const cityCell = row.insertCell(1);
+        cityCell.innerText = city.name;
+        cityCell.style.cursor = 'pointer';
+        cityCell.onclick = () => drawPath(city.name);
+        
+        const duration = city.data.travelDuration[category] ? city.data.travelDuration[category].duration : 'N/A';
+        row.insertCell(2).innerText = duration;
+
+        const distance = city.data.travelDuration[category] ? city.data.travelDuration[category].distance : 'N/A';
+        row.insertCell(3).innerText = distance;
+
+        // Extract and add the amenity type
+        const amenityType = city.data.nearestAmenity && city.data.nearestAmenity.tags ? city.data.nearestAmenity.tags.amenity : 'N/A';
+        row.insertCell(4).innerText = amenityType;
+    });
+}
+
+        function drawPath(cityName) {
+            const city = cityData[cityName];
+            if (city) {
+                const residentialCenter = city.residentialCenter;
+                const nearestAmenity = city.nearestAmenity;
+                const path = [
+                    [residentialCenter.lat, residentialCenter.lon],
+                    [nearestAmenity.lat, nearestAmenity.lon]
+                ];
+
+                // Clear existing layers
+                map.eachLayer(layer => {
+                    if (!!layer.toGeoJSON) map.removeLayer(layer);
+                });
+
+                // Draw path
+                L.polyline(path, {color: 'blue'}).addTo(map);
+
+                // Set map view to the path
+                map.fitBounds(path);
+            }
+        }
+
+        // Initialize map
+        const map = L.map('map').setView([46.8182, 8.2275], 8); // Coordinates for Switzerland
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Initialize table with default category
+        updateTable('cycling-road');
+    </script>
+</body>
+</html>
