@@ -4,43 +4,94 @@
       "lat": 47.3805716,
       "lon": 8.6005999
     },
-    "nearestAmenity": {
-      "type": "node",
-      "id": 667008916,
-      "lat": 47.3755808,
-      "lon": 8.6079447,
-      "tags": {
-        "addr:city": "Gockhausen",
-        "addr:housenumber": "72",
-        "addr:postcode": "8044",
-        "addr:street": "Obere Geerenstrasse",
-        "amenity": "restaurant",
-        "cuisine": "regional",
-        "name": "Geeren",
-        "opening_hours": "We-Sa 10:00-23:00; Su 10:00-22:00",
-        "outdoor_seating": "yes",
-        "phone": "+41 44 821 40 11",
-        "website": "https://www.geeren.ch/"
+    "nearestAmenities": [
+      {
+        "type": "restaurant",
+        "amenity": {
+          "type": "node",
+          "id": 667008916,
+          "lat": 47.3755808,
+          "lon": 8.6079447,
+          "tags": {
+            "addr:city": "Gockhausen",
+            "addr:housenumber": "72",
+            "addr:postcode": "8044",
+            "addr:street": "Obere Geerenstrasse",
+            "amenity": "restaurant",
+            "cuisine": "regional",
+            "name": "Geeren",
+            "opening_hours": "We-Sa 10:00-23:00; Su 10:00-22:00",
+            "outdoor_seating": "yes",
+            "phone": "+41 44 821 40 11",
+            "website": "https://www.geeren.ch/"
+          }
+        },
+        "distance": 783.467903443769
+      },
+      {
+        "type": "school",
+        "amenity": {
+          "type": "node",
+          "id": 9642563400,
+          "lat": 47.3855785,
+          "lon": 8.5995688,
+          "tags": {
+            "amenity": "school",
+            "contact:city": "Gockhausen",
+            "contact:email": "zuerich@sprachheilschulen.ch",
+            "contact:housenumber": "10",
+            "contact:phone": "+41 44 385 50 60",
+            "contact:postcode": "8044",
+            "contact:street": "Ursprungstrasse",
+            "contact:website": "https://www.sprachheilschulen.ch/schulen/details/sprachheilschule-zuerich",
+            "name": "Sprachheilschule Zürich",
+            "operator": "Kanton Zürich",
+            "operator:type": "public"
+          }
+        },
+        "distance": 562.128159254703
       }
-    },
-    "travelDuration": {
-      "wheelchair": {
-        "distance": 884.8,
-        "duration": 641.2,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+    ],
+    "travelDurations": {
+      "restaurant": {
+        "wheelchair": {
+          "distance": 884.8,
+          "duration": 641.2,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "cycling-road": {
+          "distance": 811.9,
+          "duration": 198.7,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "foot-walking": {
+          "distance": 811.9,
+          "duration": 584.6,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        }
       },
-      "cycling-road": {
-        "distance": 811.9,
-        "duration": 198.7,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
-      },
-      "foot-walking": {
-        "distance": 811.9,
-        "duration": 584.6,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+      "school": {
+        "wheelchair": {
+          "distance": 680.1,
+          "duration": 568.6,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "cycling-road": {
+          "distance": 829.4,
+          "duration": 270.3,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "foot-walking": {
+          "distance": 669.1,
+          "duration": 481.7,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        }
       }
     }
   },
@@ -49,42 +100,275 @@
       "lat": 46.186041,
       "lon": 6.1420193
     },
-    "nearestAmenity": {
-      "type": "node",
-      "id": 9545978088,
-      "lat": 46.1861287,
-      "lon": 6.142368,
-      "tags": {
-        "addr:city": "Carouge",
-        "addr:housenumber": "24",
-        "addr:postcode": "1227",
-        "addr:street": "Avenue Cardinal-Mermillod",
-        "amenity": "restaurant",
-        "cuisine": "thai",
-        "name": "Sawasdee",
-        "opening_hours": "Mo-Su 12:00-14:00,19:00-23:00",
-        "phone": "+4122 300 08 42",
-        "website": "https://www.sawasdee-geneve.com/"
+    "nearestAmenities": [
+      {
+        "type": "restaurant",
+        "amenity": {
+          "type": "node",
+          "id": 9545978088,
+          "lat": 46.1861287,
+          "lon": 6.142368,
+          "tags": {
+            "addr:city": "Carouge",
+            "addr:housenumber": "24",
+            "addr:postcode": "1227",
+            "addr:street": "Avenue Cardinal-Mermillod",
+            "amenity": "restaurant",
+            "cuisine": "thai",
+            "name": "Sawasdee",
+            "opening_hours": "Mo-Su 12:00-14:00,19:00-23:00",
+            "phone": "+4122 300 08 42",
+            "website": "https://www.sawasdee-geneve.com/"
+          }
+        },
+        "distance": 28.560168310956527
+      },
+      {
+        "type": "school",
+        "amenity": {
+          "type": "node",
+          "id": 1958300394,
+          "lat": 46.1867096,
+          "lon": 6.1378889,
+          "tags": {
+            "amenity": "school",
+            "name": "École de Montfalcon"
+          }
+        },
+        "distance": 326.5418032581773
+      },
+      {
+        "type": "bank",
+        "amenity": {
+          "type": "node",
+          "id": 8435368791,
+          "lat": 46.1842964,
+          "lon": 6.1405328,
+          "tags": {
+            "amenity": "bank",
+            "name": "BCGE"
+          }
+        },
+        "distance": 225.2287709632803
+      },
+      {
+        "type": "pharmacy",
+        "amenity": {
+          "type": "node",
+          "id": 11645698097,
+          "lat": 46.185642,
+          "lon": 6.1437344,
+          "tags": {
+            "addr:city": "Carouge",
+            "addr:housenumber": "36",
+            "addr:postcode": "1227",
+            "addr:street": "Avenue Cardinal-Mermillod",
+            "amenity": "pharmacy",
+            "description": "Pharmacie Populaire Carouge vous accueille pour contribuer à votre équilibre, votre santé et  votre bien-être en vous offrant des prestations et des produits de qualité, dans les domaines de la pharmacie, des médecines douces et de la beauté.",
+            "dispensing": "yes",
+            "drive_through": "no",
+            "healthcare": "pharmacy",
+            "name": "Pharmacie Populaire Carouge",
+            "opening_hours": "Mo-Fr 09:00-19:00; Sa 09:00-18:00",
+            "operator": "Pharmacie Populaire",
+            "phone": "022 318 69 13",
+            "website": "https://www.pharmaciepopulaire.ch"
+          }
+        },
+        "distance": 139.28784589858577
+      },
+      {
+        "type": "parking",
+        "amenity": {
+          "type": "node",
+          "id": 1937459678,
+          "lat": 46.1865459,
+          "lon": 6.1428617,
+          "tags": {
+            "access": "private",
+            "amenity": "parking",
+            "layer": "-1",
+            "noexit": "yes",
+            "parking": "underground"
+          }
+        },
+        "distance": 85.77549778801026
+      },
+      {
+        "type": "fuel",
+        "amenity": {
+          "type": "node",
+          "id": 1936459890,
+          "lat": 46.1885148,
+          "lon": 6.1426674,
+          "tags": {
+            "amenity": "fuel",
+            "name": "Remo Arnoldi"
+          }
+        },
+        "distance": 279.561866242075
+      },
+      {
+        "type": "atm",
+        "amenity": {
+          "type": "node",
+          "id": 7167283728,
+          "lat": 46.1842725,
+          "lon": 6.1402416,
+          "tags": {
+            "amenity": "atm",
+            "brand": "Credit Suisse",
+            "brand:wikidata": "Q372657",
+            "brand:wikipedia": "en:Credit Suisse",
+            "name": "Credit Suisse",
+            "operator": "Credit Suisse",
+            "operator:wikidata": "Q372657",
+            "operator:wikipedia": "en:Credit Suisse"
+          }
+        },
+        "distance": 239.58186985655078
       }
-    },
-    "travelDuration": {
-      "wheelchair": {
-        "distance": 56.2,
-        "duration": 40.5,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+    ],
+    "travelDurations": {
+      "restaurant": {
+        "wheelchair": {
+          "distance": 56.2,
+          "duration": 40.5,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "cycling-road": {
+          "distance": 56.2,
+          "duration": 33.7,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "foot-walking": {
+          "distance": 56.2,
+          "duration": 40.5,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        }
       },
-      "cycling-road": {
-        "distance": 56.2,
-        "duration": 33.7,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+      "school": {
+        "wheelchair": {
+          "distance": 549,
+          "duration": 383.8,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "cycling-road": {
+          "distance": 617.9,
+          "duration": 145.1,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "foot-walking": {
+          "distance": 542,
+          "duration": 390.3,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        }
       },
-      "foot-walking": {
-        "distance": 56.2,
-        "duration": 40.5,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+      "bank": {
+        "wheelchair": {
+          "distance": 316.2,
+          "duration": 211.4,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "cycling-road": {
+          "distance": 386.8,
+          "duration": 93.4,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "foot-walking": {
+          "distance": 316,
+          "duration": 227.5,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        }
+      },
+      "pharmacy": {
+        "wheelchair": {
+          "distance": 161.4,
+          "duration": 129.4,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "cycling-road": {
+          "distance": 150.9,
+          "duration": 36.2,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "foot-walking": {
+          "distance": 150.9,
+          "duration": 108.6,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        }
+      },
+      "parking": {
+        "wheelchair": {
+          "distance": 124.6,
+          "duration": 101.8,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "cycling-road": {
+          "distance": 158,
+          "duration": 46.5,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "foot-walking": {
+          "distance": 124.6,
+          "duration": 89.7,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        }
+      },
+      "fuel": {
+        "wheelchair": {
+          "distance": 414,
+          "duration": 283.5,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "cycling-road": {
+          "distance": 481.4,
+          "duration": 97.4,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "foot-walking": {
+          "distance": 412.4,
+          "duration": 296.9,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        }
+      },
+      "atm": {
+        "wheelchair": {
+          "distance": 337.4,
+          "duration": 223.5,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "cycling-road": {
+          "distance": 395.2,
+          "duration": 98.5,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "foot-walking": {
+          "distance": 337,
+          "duration": 242.6,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        }
       }
     }
   },
@@ -93,38 +377,212 @@
       "lat": 47.5898327,
       "lon": 7.5623131
     },
-    "nearestAmenity": {
-      "type": "node",
-      "id": 10242599337,
-      "lat": 47.5885725,
-      "lon": 7.5610141,
-      "tags": {
-        "addr:city": "Saint-Louis",
-        "addr:housenumber": "46",
-        "addr:postcode": "68300",
-        "addr:street": "Rue de Mulhouse",
-        "amenity": "restaurant",
-        "name": "Le Trianon"
+    "nearestAmenities": [
+      {
+        "type": "restaurant",
+        "amenity": {
+          "type": "node",
+          "id": 10242599337,
+          "lat": 47.5885725,
+          "lon": 7.5610141,
+          "tags": {
+            "addr:city": "Saint-Louis",
+            "addr:housenumber": "46",
+            "addr:postcode": "68300",
+            "addr:street": "Rue de Mulhouse",
+            "amenity": "restaurant",
+            "name": "Le Trianon"
+          }
+        },
+        "distance": 170.66354679705526
+      },
+      {
+        "type": "bank",
+        "amenity": {
+          "type": "node",
+          "id": 1901922460,
+          "lat": 47.5886944,
+          "lon": 7.560937,
+          "tags": {
+            "amenity": "bank",
+            "atm": "yes",
+            "bic": "CCBPFRPPMTZ",
+            "brand": "Banque Populaire",
+            "brand:wikidata": "Q846647",
+            "brand:wikipedia": "fr:Banque populaire",
+            "fax": "+33 3 66 41 40 72",
+            "name": "Banque Populaire",
+            "opening_hours": "Tu-Fr 08:30-12:00,13:30-18:00; Sa 08:45-12:00",
+            "operator": "Banque Populaire Alsace Lorraine Champagne",
+            "phone": "+33 3 54 22 10 00",
+            "ref": "50855"
+          }
+        },
+        "distance": 163.3124788835854
+      },
+      {
+        "type": "pharmacy",
+        "amenity": {
+          "type": "node",
+          "id": 1901922468,
+          "lat": 47.5904702,
+          "lon": 7.5580049,
+          "tags": {
+            "amenity": "pharmacy",
+            "dispensing": "yes",
+            "name": "Pharmacie de la Gare",
+            "opening_hours": "Mo-Fr 08:00-19:00; Sa 08:00-17:00",
+            "ref:FR:FINESS": "680015237",
+            "source": "Celtipharm - 10/2014"
+          }
+        },
+        "distance": 330.7704289997959
+      },
+      {
+        "type": "parking",
+        "amenity": {
+          "type": "node",
+          "id": 1282124678,
+          "lat": 47.5867977,
+          "lon": 7.5627624,
+          "tags": {
+            "access": "yes",
+            "amenity": "parking",
+            "charge": "0EUR/h up to 3h;",
+            "fee": "yes",
+            "name": "Parking Croizée des Lys",
+            "parking": "underground"
+          }
+        },
+        "distance": 339.15461065136293
+      },
+      {
+        "type": "fuel",
+        "amenity": {
+          "type": "node",
+          "id": 25209833,
+          "lat": 47.5931448,
+          "lon": 7.5556247,
+          "tags": {
+            "amenity": "fuel",
+            "brand": "Total",
+            "brand:wikidata": "Q154037",
+            "brand:wikipedia": "fr:Total (entreprise)",
+            "compressed_air": "yes",
+            "contact:city": "Saint-Louis",
+            "contact:country": "FR",
+            "contact:housenumber": "122",
+            "contact:postcode": "68300",
+            "contact:street": "Rue de Mulhouse",
+            "fuel:diesel": "yes",
+            "fuel:e10": "yes",
+            "fuel:lpg": "yes",
+            "fuel:octane_98": "yes",
+            "hgv:lanes": "yes",
+            "name": "Station Total",
+            "opening_hours": "24/7",
+            "operator": "Total",
+            "ref:FR:prix-carburants": "68300002",
+            "shop": "convenience",
+            "source": "stations.gpl.online.fr",
+            "vending": "fuel",
+            "vending_machine": "fuel",
+            "wheelchair": "yes"
+          }
+        },
+        "distance": 622.2621622436955
       }
-    },
-    "travelDuration": {
-      "wheelchair": {
-        "distance": 326.2,
-        "duration": 297.4,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+    ],
+    "travelDurations": {
+      "restaurant": {
+        "wheelchair": {
+          "distance": 326.2,
+          "duration": 297.4,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "cycling-road": {
+          "distance": 338.8,
+          "duration": 113.8,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "foot-walking": {
+          "distance": 326.2,
+          "duration": 234.8,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        }
       },
-      "cycling-road": {
-        "distance": 338.8,
-        "duration": 113.8,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+      "bank": {
+        "wheelchair": {
+          "distance": 311.8,
+          "duration": 280.1,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "cycling-road": {
+          "distance": 324.4,
+          "duration": 111.6,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "foot-walking": {
+          "distance": 311.8,
+          "duration": 224.5,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        }
       },
-      "foot-walking": {
-        "distance": 326.2,
-        "duration": 234.8,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+      "pharmacy": {
+        "wheelchair": {
+          "distance": 427.5,
+          "duration": 320.9,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "cycling-road": {
+          "distance": 411,
+          "duration": 148.9,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "foot-walking": {
+          "distance": 427.5,
+          "duration": 307.8,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        }
+      },
+      "parking": {
+        "wheelchair": {
+          "distance": 602.9,
+          "duration": 440.2,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "cycling-road": {
+          "distance": 620,
+          "duration": 124.9,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "foot-walking": {
+          "distance": 567.9,
+          "duration": 408.9,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        }
+      },
+      "fuel": {
+        "wheelchair": {
+          "distance": 827.8,
+          "duration": 764.3,
+          "durationUnit": "seconds",
+          "distanceUnit": "meters"
+        },
+        "cycling-road": null,
+        "foot-walking": null
       }
     }
   },
@@ -133,29 +591,119 @@
       "lat": 46.5375797,
       "lon": 6.6525804
     },
-    "nearestAmenity": {
-      "type": "node",
-      "id": 5395613251,
-      "lat": 46.5406613,
-      "lon": 6.6573139,
-      "tags": {
-        "amenity": "restaurant",
-        "name": "Le Piranha"
-      }
-    },
-    "travelDuration": {
-      "wheelchair": null,
-      "cycling-road": {
-        "distance": 1145.4,
-        "duration": 262.7,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+    "nearestAmenities": [
+      {
+        "type": "restaurant",
+        "amenity": {
+          "type": "node",
+          "id": 5395613251,
+          "lat": 46.5406613,
+          "lon": 6.6573139,
+          "tags": {
+            "amenity": "restaurant",
+            "name": "Le Piranha"
+          }
+        },
+        "distance": 498.4916118583411
       },
-      "foot-walking": {
-        "distance": 1147.6,
-        "duration": 826.3,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+      {
+        "type": "bank",
+        "amenity": {
+          "type": "node",
+          "id": 895383054,
+          "lat": 46.5331978,
+          "lon": 6.6476341,
+          "tags": {
+            "amenity": "bank",
+            "atm": "yes",
+            "brand": "Banque Cantonale Vaudoise",
+            "brand:wikidata": "Q685533",
+            "name": "Banque Cantonale Vaudoise",
+            "operator": "BCV",
+            "short_name": "BCV"
+          }
+        },
+        "distance": 616.8931439659946
+      },
+      {
+        "type": "pharmacy",
+        "amenity": {
+          "type": "node",
+          "id": 5332973018,
+          "lat": 46.5336252,
+          "lon": 6.6481547,
+          "tags": {
+            "addr:city": "Lausanne",
+            "addr:housenumber": "4",
+            "addr:postcode": "1010",
+            "addr:street": "Route d'Oron",
+            "amenity": "pharmacy",
+            "healthcare": "pharmacy",
+            "name": "Pharmacie Populaire de La Sallaz",
+            "phone": "+41 21 652 48 70"
+          }
+        },
+        "distance": 554.9370971984634
+      },
+      {
+        "type": "parking",
+        "amenity": {
+          "type": "node",
+          "id": 621771749,
+          "lat": 46.5371222,
+          "lon": 6.6509116,
+          "tags": {
+            "access": "private",
+            "amenity": "parking",
+            "parking": "underground",
+            "source": "Orthophoto Ville de Lausanne 2008"
+          }
+        },
+        "distance": 137.4085440746412
+      },
+      {
+        "type": "atm",
+        "amenity": {
+          "type": "node",
+          "id": 4248022297,
+          "lat": 46.5430984,
+          "lon": 6.661456,
+          "tags": {
+            "amenity": "atm",
+            "check_date": "2021-04-08",
+            "currency:CHF": "yes",
+            "drive_through": "no",
+            "operator": "UBS"
+          }
+        },
+        "distance": 915.0970029947059
+      }
+    ],
+    "travelDurations": {
+      "restaurant": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
+      },
+      "bank": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
+      },
+      "pharmacy": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
+      },
+      "parking": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
+      },
+      "atm": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
       }
     }
   },
@@ -164,41 +712,135 @@
       "lat": 46.9466423,
       "lon": 7.4826352
     },
-    "nearestAmenity": {
-      "type": "node",
-      "id": 537955663,
-      "lat": 46.9452602,
-      "lon": 7.4728748,
-      "tags": {
-        "amenity": "restaurant",
-        "contact:email": "info@strada-bern.ch",
-        "contact:phone": "+41 31 352 94 24",
-        "contact:website": "https://www.strada-bern.ch",
-        "cuisine": "italian",
-        "name": "Strada",
-        "opening_hours": "Mo-Sa 08:00-23:00; Su,PH off",
-        "takeaway": "yes",
-        "wheelchair": "yes"
+    "nearestAmenities": [
+      {
+        "type": "restaurant",
+        "amenity": {
+          "type": "node",
+          "id": 537955663,
+          "lat": 46.9452602,
+          "lon": 7.4728748,
+          "tags": {
+            "amenity": "restaurant",
+            "contact:email": "info@strada-bern.ch",
+            "contact:phone": "+41 31 352 94 24",
+            "contact:website": "https://www.strada-bern.ch",
+            "cuisine": "italian",
+            "name": "Strada",
+            "opening_hours": "Mo-Sa 08:00-23:00; Su,PH off",
+            "takeaway": "yes",
+            "wheelchair": "yes"
+          }
+        },
+        "distance": 756.6965371437432
+      },
+      {
+        "type": "pharmacy",
+        "amenity": {
+          "type": "node",
+          "id": 537955672,
+          "lat": 46.9453968,
+          "lon": 7.4726328,
+          "tags": {
+            "addr:housenumber": "15",
+            "addr:postcode": "3006",
+            "addr:street": "Giacomettistrasse",
+            "amenity": "pharmacy",
+            "contact:addr": "Giacomettistrasse 15, 3006 Bern",
+            "contact:email": "info@freudenbergapotheke.ch",
+            "contact:fax": "+41 31 352 38 65",
+            "contact:phone": "+41 31 351 96 33",
+            "contact:website": "https://www.freudenbergapotheke.ch",
+            "healthcare": "pharmacy",
+            "level": "1",
+            "name": "Freudenberg-Apotheke",
+            "opening_hours": "Mo-Th 08:00-19:00; Fr 08:00-20:00; Sa 08:00-17:00",
+            "post_office": "post_partner",
+            "post_office:brand": "Die Post",
+            "post_office:brand:wikidata": "Q107231758",
+            "wheelchair": "yes"
+          }
+        },
+        "distance": 771.8226443721996
+      },
+      {
+        "type": "parking",
+        "amenity": {
+          "type": "node",
+          "id": 9133199800,
+          "lat": 46.9391378,
+          "lon": 7.4812068,
+          "tags": {
+            "access": "customers",
+            "amenity": "parking",
+            "layer": "-1",
+            "name": "Zentrum Wittigkofen",
+            "parking": "underground"
+          }
+        },
+        "distance": 841.4785774865485
+      },
+      {
+        "type": "fuel",
+        "amenity": {
+          "type": "node",
+          "id": 2648339595,
+          "lat": 46.9451396,
+          "lon": 7.4730558,
+          "tags": {
+            "amenity": "fuel",
+            "brand": "Avia",
+            "brand:wikidata": "Q300147",
+            "compressed_air": "yes",
+            "name": "Avia",
+            "opening_hours": "Mo-Sa 06:00-22:00; Su 07:00-22:00"
+          }
+        },
+        "distance": 746.1371550686636
+      },
+      {
+        "type": "atm",
+        "amenity": {
+          "type": "node",
+          "id": 2975243686,
+          "lat": 46.9455239,
+          "lon": 7.4727224,
+          "tags": {
+            "amenity": "atm",
+            "brand": "Credit Suisse",
+            "brand:wikidata": "Q372657",
+            "operator": "Credit Suisse",
+            "operator:wikidata": "Q372657"
+          }
+        },
+        "distance": 762.7000058551525
       }
-    },
-    "travelDuration": {
-      "wheelchair": {
-        "distance": 1226.5,
-        "duration": 924.4,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+    ],
+    "travelDurations": {
+      "restaurant": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
       },
-      "cycling-road": {
-        "distance": 1367.1,
-        "duration": 313.5,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+      "pharmacy": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
       },
-      "foot-walking": {
-        "distance": 1221.3,
-        "duration": 879.3,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+      "parking": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
+      },
+      "fuel": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
+      },
+      "atm": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
       }
     }
   },
@@ -207,39 +849,77 @@
       "lat": 47.4776532,
       "lon": 8.7029556
     },
-    "nearestAmenity": {
-      "type": "node",
-      "id": 4125136764,
-      "lat": 47.4763352,
-      "lon": 8.7041609,
-      "tags": {
-        "addr:city": "Winterthur",
-        "addr:housenumber": "322",
-        "addr:postcode": "8406",
-        "addr:street": "Zürcherstrasse",
-        "amenity": "restaurant",
-        "name": "By Elvis",
-        "website": "https://www.byelvis.ch/"
+    "nearestAmenities": [
+      {
+        "type": "restaurant",
+        "amenity": {
+          "type": "node",
+          "id": 4125136764,
+          "lat": 47.4763352,
+          "lon": 8.7041609,
+          "tags": {
+            "addr:city": "Winterthur",
+            "addr:housenumber": "322",
+            "addr:postcode": "8406",
+            "addr:street": "Zürcherstrasse",
+            "amenity": "restaurant",
+            "name": "By Elvis",
+            "website": "https://www.byelvis.ch/"
+          }
+        },
+        "distance": 172.29012477535605
+      },
+      {
+        "type": "parking",
+        "amenity": {
+          "type": "node",
+          "id": 927293439,
+          "lat": 47.4793629,
+          "lon": 8.7023868,
+          "tags": {
+            "access": "private",
+            "amenity": "parking",
+            "noexit": "yes",
+            "parking": "underground"
+          }
+        },
+        "distance": 194.85662687675975
+      },
+      {
+        "type": "atm",
+        "amenity": {
+          "type": "node",
+          "id": 9590232629,
+          "lat": 47.4773285,
+          "lon": 8.6991371,
+          "tags": {
+            "amenity": "atm",
+            "brand": "Migrosbank",
+            "cash_in": "no",
+            "level": "0",
+            "opening_hours": "24/7",
+            "operator": "Migrosbank",
+            "wheelchair": "limited"
+          }
+        },
+        "distance": 289.23938816490994
       }
-    },
-    "travelDuration": {
-      "wheelchair": {
-        "distance": 290,
-        "duration": 207.8,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+    ],
+    "travelDurations": {
+      "restaurant": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
       },
-      "cycling-road": {
-        "distance": 238.5,
-        "duration": 69.8,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+      "parking": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
       },
-      "foot-walking": {
-        "distance": 239.6,
-        "duration": 172.5,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+      "atm": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
       }
     }
   },
@@ -248,41 +928,162 @@
       "lat": 47.0804213,
       "lon": 8.3396634
     },
-    "nearestAmenity": {
-      "type": "node",
-      "id": 2363140154,
-      "lat": 47.0821775,
-      "lon": 8.3414215,
-      "tags": {
-        "addr:city": "Ebikon",
-        "addr:housenumber": "7",
-        "addr:postcode": "6030",
-        "addr:street": "Zentralstrasse",
-        "amenity": "restaurant",
-        "cuisine": "italian",
-        "name": "Restaurant Sonne",
-        "phone": "+41 41 440 90 40",
-        "website": "http://www.sonne-ebikon.ch/"
+    "nearestAmenities": [
+      {
+        "type": "restaurant",
+        "amenity": {
+          "type": "node",
+          "id": 2363140154,
+          "lat": 47.0821775,
+          "lon": 8.3414215,
+          "tags": {
+            "addr:city": "Ebikon",
+            "addr:housenumber": "7",
+            "addr:postcode": "6030",
+            "addr:street": "Zentralstrasse",
+            "amenity": "restaurant",
+            "cuisine": "italian",
+            "name": "Restaurant Sonne",
+            "phone": "+41 41 440 90 40",
+            "website": "http://www.sonne-ebikon.ch/"
+          }
+        },
+        "distance": 236.33868523642673
+      },
+      {
+        "type": "bank",
+        "amenity": {
+          "type": "node",
+          "id": 2363141339,
+          "lat": 47.0808309,
+          "lon": 8.3401708,
+          "tags": {
+            "addr:city": "Ebikon",
+            "addr:housenumber": "14",
+            "addr:postcode": "6030",
+            "addr:street": "Zentralstrasse",
+            "amenity": "bank",
+            "atm": "yes",
+            "brand": "Luzerner Kantonalbank",
+            "brand:wikidata": "Q1756878",
+            "name": "Luzerner Kantonalbank",
+            "operator": "Luzerner Kantonalbank AG",
+            "short_name": "LUKB",
+            "wheelchair": "yes"
+          }
+        },
+        "distance": 59.58622719550257
+      },
+      {
+        "type": "pharmacy",
+        "amenity": {
+          "type": "node",
+          "id": 5772610781,
+          "lat": 47.0816293,
+          "lon": 8.3415469,
+          "tags": {
+            "addr:city": "Ebikon",
+            "addr:housename": "Amavita Apotheke",
+            "addr:housenumber": "18",
+            "addr:postcode": "6030",
+            "addr:street": "Zentralstrasse",
+            "amenity": "pharmacy",
+            "branch": "Ebikon",
+            "brand": "Amavita",
+            "brand:wikidata": "Q93733901",
+            "brand:wikipedia": "de:Amavita",
+            "healthcare": "pharmacy",
+            "name": "Amavita",
+            "opening_hours": "Mo-Th 08:00-12:15,13:30-18:30; Fr 08:00-12:15,13:30-20:00; Sa 08:00-16:00",
+            "operator": "GaleniCare",
+            "phone": "+41 58 851 32 53",
+            "source": "website",
+            "website": "https://www.amavita.ch/de/amavita-apotheke-ebikon",
+            "wheelchair": "yes"
+          }
+        },
+        "distance": 195.91501474421892
+      },
+      {
+        "type": "parking",
+        "amenity": {
+          "type": "node",
+          "id": 10106426270,
+          "lat": 47.0802494,
+          "lon": 8.3401894,
+          "tags": {
+            "amenity": "parking"
+          }
+        },
+        "distance": 44.17822020200924
+      },
+      {
+        "type": "fuel",
+        "amenity": {
+          "type": "node",
+          "id": 356056962,
+          "lat": 47.0858958,
+          "lon": 8.3457178,
+          "tags": {
+            "amenity": "fuel",
+            "operator": "Agrola"
+          }
+        },
+        "distance": 762.0420821383166
+      },
+      {
+        "type": "atm",
+        "amenity": {
+          "type": "node",
+          "id": 9736388610,
+          "lat": 47.0833245,
+          "lon": 8.3422349,
+          "tags": {
+            "addr:city": "Ebikon",
+            "addr:housenumber": "12",
+            "addr:postcode": "6030",
+            "addr:street": "Riedmattstrasse",
+            "amenity": "atm",
+            "brand": "Credit Suisse",
+            "brand:wikidata": "Q372657",
+            "name": "Credit Suisse",
+            "operator": "Credit Suisse",
+            "operator:wikidata": "Q372657"
+          }
+        },
+        "distance": 376.9953254465497
       }
-    },
-    "travelDuration": {
-      "wheelchair": {
-        "distance": 359.4,
-        "duration": 250.2,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+    ],
+    "travelDurations": {
+      "restaurant": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
       },
-      "cycling-road": {
-        "distance": 252.4,
-        "duration": 73.5,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+      "bank": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
       },
-      "foot-walking": {
-        "distance": 272.5,
-        "duration": 196.2,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+      "pharmacy": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
+      },
+      "parking": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
+      },
+      "fuel": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
+      },
+      "atm": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
       }
     }
   },
@@ -291,38 +1092,127 @@
       "lat": 47.4018078,
       "lon": 9.2988174
     },
-    "nearestAmenity": {
-      "type": "node",
-      "id": 4233202590,
-      "lat": 47.4039087,
-      "lon": 9.3025846,
-      "tags": {
-        "addr:postcode": "9015",
-        "addr:street": "Herisauerstrasse",
-        "amenity": "restaurant",
-        "name": "Landhaus",
-        "opening_hours": "Mo-Fr 08:00-23:00; Sa 09:00-13:00",
-        "wheelchair": "no"
+    "nearestAmenities": [
+      {
+        "type": "restaurant",
+        "amenity": {
+          "type": "node",
+          "id": 4233202590,
+          "lat": 47.4039087,
+          "lon": 9.3025846,
+          "tags": {
+            "addr:postcode": "9015",
+            "addr:street": "Herisauerstrasse",
+            "amenity": "restaurant",
+            "name": "Landhaus",
+            "opening_hours": "Mo-Fr 08:00-23:00; Sa 09:00-13:00",
+            "wheelchair": "no"
+          }
+        },
+        "distance": 367.3676391042771
+      },
+      {
+        "type": "bank",
+        "amenity": {
+          "type": "node",
+          "id": 3857364573,
+          "lat": 47.4044941,
+          "lon": 9.3027835,
+          "tags": {
+            "amenity": "bank",
+            "atm": "yes",
+            "name": "Raiffeisenbank Winkeln",
+            "wheelchair": "yes"
+          }
+        },
+        "distance": 422.2801543933644
+      },
+      {
+        "type": "parking",
+        "amenity": {
+          "type": "node",
+          "id": 206236373,
+          "lat": 47.4065617,
+          "lon": 9.3052731,
+          "tags": {
+            "amenity": "parking",
+            "parking": "underground",
+            "wheelchair": "yes"
+          }
+        },
+        "distance": 717.9687014579144
+      },
+      {
+        "type": "fuel",
+        "amenity": {
+          "type": "node",
+          "id": 4233225589,
+          "lat": 47.4039492,
+          "lon": 9.3044453,
+          "tags": {
+            "addr:city": "St. Gallen",
+            "addr:housenumber": "2",
+            "addr:postcode": "9015",
+            "addr:street": "Ikarusstrasse",
+            "amenity": "fuel",
+            "brand": "Avia",
+            "brand:wikidata": "Q300147",
+            "brand:wikipedia": "de:Avia International",
+            "check_date": "2022-07-24",
+            "fuel:diesel": "yes",
+            "fuel:octane_95": "yes",
+            "fuel:octane_98": "yes",
+            "name": "Avia Osterwalder",
+            "opening_hours": "24/7"
+          }
+        },
+        "distance": 485.9035406880252
+      },
+      {
+        "type": "atm",
+        "amenity": {
+          "type": "node",
+          "id": 11115035254,
+          "lat": 47.4082319,
+          "lon": 9.3052746,
+          "tags": {
+            "amenity": "atm",
+            "cash_in": "no",
+            "check_date": "2023-11-13",
+            "currency:XBT": "yes",
+            "network": "Bity SA",
+            "opening_hours": "Mo-Fr 09:00-19:00; Sa 09:00-17:00",
+            "operator": "Kafi Schatz"
+          }
+        },
+        "distance": 863.9541296971792
       }
-    },
-    "travelDuration": {
-      "wheelchair": {
-        "distance": 854.7,
-        "duration": 640.3,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+    ],
+    "travelDurations": {
+      "restaurant": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
       },
-      "cycling-road": {
-        "distance": 795.5,
-        "duration": 129.5,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+      "bank": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
       },
-      "foot-walking": {
-        "distance": 462.9,
-        "duration": 333.3,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+      "parking": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
+      },
+      "fuel": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
+      },
+      "atm": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
       }
     }
   },
@@ -331,40 +1221,165 @@
       "lat": 46.0182124,
       "lon": 8.9639304
     },
-    "nearestAmenity": {
-      "type": "node",
-      "id": 415252042,
-      "lat": 46.0203932,
-      "lon": 8.9651438,
-      "tags": {
-        "addr:city": "Pregassona",
-        "addr:housenumber": "18",
-        "addr:postcode": "6963",
-        "addr:street": "Via Industria",
-        "amenity": "restaurant",
-        "cuisine": "italian",
-        "name": "La Civetta",
-        "phone": "+41 91 930 81 61"
+    "nearestAmenities": [
+      {
+        "type": "restaurant",
+        "amenity": {
+          "type": "node",
+          "id": 415252042,
+          "lat": 46.0203932,
+          "lon": 8.9651438,
+          "tags": {
+            "addr:city": "Pregassona",
+            "addr:housenumber": "18",
+            "addr:postcode": "6963",
+            "addr:street": "Via Industria",
+            "amenity": "restaurant",
+            "cuisine": "italian",
+            "name": "La Civetta",
+            "phone": "+41 91 930 81 61"
+          }
+        },
+        "distance": 259.9648623784407
+      },
+      {
+        "type": "school",
+        "amenity": {
+          "type": "node",
+          "id": 4575486101,
+          "lat": 46.0146245,
+          "lon": 8.9618134,
+          "tags": {
+            "amenity": "school",
+            "name": "École Medie de Viganello",
+            "name:fr": "École Medie de Viganello",
+            "name:it": "Scuola Media di Viganello"
+          }
+        },
+        "distance": 431.1493929757989
+      },
+      {
+        "type": "bank",
+        "amenity": {
+          "type": "node",
+          "id": 367105906,
+          "lat": 46.0217102,
+          "lon": 8.9585041,
+          "tags": {
+            "amenity": "bank",
+            "atm": "yes",
+            "branch": "Pregassona",
+            "brand": "Banca Stato",
+            "brand:wikidata": "Q806158",
+            "level": "0",
+            "name": "Banca Stato",
+            "operator": "Banca Stato",
+            "wheelchair": "yes"
+          }
+        },
+        "distance": 571.6859348532972
+      },
+      {
+        "type": "pharmacy",
+        "amenity": {
+          "type": "node",
+          "id": 415255089,
+          "lat": 46.019716,
+          "lon": 8.9650146,
+          "tags": {
+            "addr:housenumber": "30",
+            "addr:street": "Via Ceresio",
+            "amenity": "pharmacy",
+            "dispensing": "yes",
+            "name": "Farmacia Pregassona"
+          }
+        },
+        "distance": 186.98136791418693
+      },
+      {
+        "type": "parking",
+        "amenity": {
+          "type": "node",
+          "id": 311468078,
+          "lat": 46.0198379,
+          "lon": 8.9623699,
+          "tags": {
+            "amenity": "parking",
+            "created_by": "Potlatch 0.10f"
+          }
+        },
+        "distance": 217.2297366167815
+      },
+      {
+        "type": "fuel",
+        "amenity": {
+          "type": "node",
+          "id": 366785529,
+          "lat": 46.0180139,
+          "lon": 8.9620883,
+          "tags": {
+            "addr:housenumber": "36",
+            "addr:street": "Via Giacomo e Filippo Ciani",
+            "amenity": "fuel",
+            "brand": "Agip",
+            "brand:wikidata": "Q377915",
+            "brand:wikipedia": "en:Agip",
+            "fixme": "Please check name and brand. Agip becomes Eni. See http://lists.openstreetmap.ch/pipermail/talk-ch/2019-January/009849.html for (german) discussion.",
+            "name": "Agip"
+          }
+        },
+        "distance": 143.94412280309098
+      },
+      {
+        "type": "atm",
+        "amenity": {
+          "type": "node",
+          "id": 2599270246,
+          "lat": 46.0120215,
+          "lon": 8.9639574,
+          "tags": {
+            "amenity": "atm",
+            "operator": "Post"
+          }
+        },
+        "distance": 688.3998287876902
       }
-    },
-    "travelDuration": {
-      "wheelchair": {
-        "distance": 341,
-        "duration": 264.7,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+    ],
+    "travelDurations": {
+      "restaurant": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
       },
-      "cycling-road": {
-        "distance": 317.8,
-        "duration": 72.4,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+      "school": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
       },
-      "foot-walking": {
-        "distance": 346.8,
-        "duration": 249.7,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+      "bank": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
+      },
+      "pharmacy": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
+      },
+      "parking": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
+      },
+      "fuel": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
+      },
+      "atm": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
       }
     }
   },
@@ -373,34 +1388,46 @@
       "lat": 47.150338,
       "lon": 7.2393385
     },
-    "nearestAmenity": {
-      "type": "node",
-      "id": 1020601839,
-      "lat": 47.1497998,
-      "lon": 7.2395312,
-      "tags": {
-        "amenity": "restaurant",
-        "name": "Le Cyrano"
+    "nearestAmenities": [
+      {
+        "type": "restaurant",
+        "amenity": {
+          "type": "node",
+          "id": 1020601839,
+          "lat": 47.1497998,
+          "lon": 7.2395312,
+          "tags": {
+            "amenity": "restaurant",
+            "name": "Le Cyrano"
+          }
+        },
+        "distance": 61.59373319357487
+      },
+      {
+        "type": "parking",
+        "amenity": {
+          "type": "node",
+          "id": 3542179559,
+          "lat": 47.1509256,
+          "lon": 7.2305691,
+          "tags": {
+            "amenity": "parking",
+            "wheelchair": "yes"
+          }
+        },
+        "distance": 666.3591530357842
       }
-    },
-    "travelDuration": {
-      "wheelchair": {
-        "distance": 164.7,
-        "duration": 129.1,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+    ],
+    "travelDurations": {
+      "restaurant": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
       },
-      "cycling-road": {
-        "distance": 163.3,
-        "duration": 29.2,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
-      },
-      "foot-walking": {
-        "distance": 65,
-        "duration": 46.8,
-        "durationUnit": "seconds",
-        "distanceUnit": "meters"
+      "parking": {
+        "wheelchair": null,
+        "cycling-road": null,
+        "foot-walking": null
       }
     }
   }

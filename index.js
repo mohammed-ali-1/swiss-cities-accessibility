@@ -120,23 +120,25 @@ async function start() {
         continue;
       }
 
-      const nearestAmentiyLat = nearestAmenities[0].amenity.lat;
-      const nearestAmenityLon = nearestAmenities[0].amenity.lon;
-
-      console.log(`getting travel times for city: ${city}`)
-      const duration = await calculateTravelTimes([centerLon, centerLat], [nearestAmenityLon, nearestAmentiyLat]);
-      
+      // Store each nearest amenity type and its data in cityData
       cityData[city] = {
         residentialCenter: residentialCenters.elements[0].center,
-        nearestAmenity: nearestAmenities[0].amenity,
-        travelDuration: duration
+        nearestAmenities: nearestAmenities,
+        travelDurations: {}
       };
+
+      // Calculate and store travel times for each amenity type
+      for (const amenity of nearestAmenities) {
+        const { lat, lon } = amenity.amenity;
+        console.log(`Getting travel times for city: ${city}, amenity type: ${amenity.type}`);
+        const duration = await calculateTravelTimes([centerLon, centerLat], [lon, lat]);
+        cityData[city].travelDurations[amenity.type] = duration;
+      }
     } catch (error) {
       console.error(`Error processing ${city}:`, error);
       cityData[city] = { error: `Error processing city: ${error.message}` };
     }
   }
-
 
   console.log(util.inspect(cityData, { showHidden: false, depth: null }));
   fs.writeFile('cityData.json', JSON.stringify(cityData, null, 2), 'utf8', function (err) {
@@ -146,13 +148,14 @@ async function start() {
     }
 
     console.log("JSON file has been saved.");
-});
+  });
 }
+
 
 
 start()
 
-async function findNearestAmenities(centroidLat, centroidLon) {
+async function _findNearestAmenities(centroidLat, centroidLon) {
   let nearestAmenities = [];
   const amenitiesTypes = [
     "restaurant",
@@ -198,37 +201,129 @@ async function findNearestAmenities(centroidLat, centroidLon) {
   return nearestAmenities;
 }
 
-async function calculateTravelTimes(startCoordinates, endCoordinates) {
+async function findNearestAmenities(centroidLat, centroidLon) {
+  let nearestAmenities = [];
+  const amenitiesTypes = [
+    "restaurant",
+    "supermarket",
+    "hospital",
+    "school",
+    "bank",
+    "pharmacy",
+    "parking",
+    "fuel",
+    "atm",
+    "bus_station"
+  ];
+
+  for (const amenityType of amenitiesTypes) {
+    const query = `
+      [out:json];
+      node
+        ["amenity"="${amenityType}"]
+        (around:1000,${centroidLat},${centroidLon});
+      out;
+    `;
+
+    const amenities = await overpassApiQuery(query);
+    if (amenities && amenities.elements.length > 0) {
+      let nearestAmenity = amenities.elements.reduce((closest, amenity) => {
+        const distance = calculateDistance(centroidLat, centroidLon, amenity.lat, amenity.lon);
+        return (distance < closest.distance) ? { amenity, distance } : closest;
+      }, { amenity: null, distance: Infinity });
+
+      if (nearestAmenity.amenity) {
+        nearestAmenities.push({
+          type: amenityType,
+          amenity: nearestAmenity.amenity,
+          distance: nearestAmenity.distance // Optionally include distance
+        });
+      }
+    }
+  }
+  return nearestAmenities;
+}
+
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+class RateLimiter {
+  constructor(limit, interval) {
+    this.limit = limit; // Max number of tokens in the bucket
+    this.interval = interval; // Time interval in ms for the rate limit
+    this.tokens = limit; // Current number of tokens available
+    this.lastCheck = Date.now(); // Last time tokens were checked/added
+  }
+
+  async getToken() {
+    const now = Date.now();
+    const timePassed = now - this.lastCheck;
+
+    // Add tokens based on time passed, up to the limit
+    if (timePassed > this.interval) {
+      const tokensToAdd = Math.floor(timePassed / this.interval) * this.limit;
+      this.tokens = Math.min(this.limit, this.tokens + tokensToAdd);
+      this.lastCheck = now;
+    }
+
+    if (this.tokens > 0) {
+      this.tokens -= 1; // Consume a token
+      return true;
+    } else {
+      const waitForNextToken = this.interval - (now - this.lastCheck);
+      await this.delay(waitForNextToken); // Wait for the next token to be available
+      return this.getToken(); // Recursively try again
+    }
+  }
+
+  delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+}
+
+// Create an instance of RateLimiter for 40 requests per minute
+const limiter = new RateLimiter(40, 60000 / 40);
+
+async function calculateTravelTimes(startCoordinates, endCoordinates, attempts = 3) {
   const profiles = ['wheelchair', 'cycling-road', 'foot-walking'];
   const travelSummaries = {};
 
   for (const profile of profiles) {
     const endpoint = `https://api.openrouteservice.org/v2/directions/${profile}`;
+    let attempt = 0;
+    let success = false;
 
-    try {
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          //key from here: https://openrouteservice.org/dev/#/home
-          'Authorization': process.env.OPEN_ROUTE_SERVICE_API_KEY,
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
-        body: JSON.stringify({
-          "coordinates": [startCoordinates, endCoordinates]
-        }),
-      });
+    while (!success && attempt < attempts) {
+      try {
+        await limiter.getToken(); // Wait for token before making a request
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Authorization': process.env.OPEN_ROUTE_SERVICE_API_KEY,
+            'Content-Type': 'application/json; charset=UTF-8',
+          },
+          body: JSON.stringify({
+            "coordinates": [startCoordinates, endCoordinates]
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        travelSummaries[profile] = data.routes[0].summary; // Duration in seconds
+        travelSummaries[profile].durationUnit = 'seconds';
+        travelSummaries[profile].distanceUnit = 'meters';
+        success = true;
+      } catch (error) {
+        attempt++;
+        console.error(`Request failed for profile ${profile}, attempt ${attempt}`, error);
+        if (attempt >= attempts) {
+          travelSummaries[profile] = null;
+          console.error(`All retries failed for profile ${profile}`);
+        }
       }
-
-      const data = await response.json();
-      travelSummaries[profile] = data.routes[0].summary; // Duration in seconds
-      travelSummaries[profile].durationUnit = 'seconds'
-      travelSummaries[profile].distanceUnit = 'meters'
-    } catch (error) {
-      console.error(`Request failed for profile ${profile}`, error);
-      travelSummaries[profile] = null;
     }
   }
 
